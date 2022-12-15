@@ -90,6 +90,7 @@ fn p2() {
     println!("{}", sub.mult());
 }
 
+#[allow(dead_code)]
 pub fn main() {
     p2();
 }

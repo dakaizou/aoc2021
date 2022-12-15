@@ -40,6 +40,7 @@ fn p2() {
     println!("{inc_count}");
 }
 
+#[allow(dead_code)]
 pub fn main() {
     p2();
 }

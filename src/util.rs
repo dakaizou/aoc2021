@@ -61,11 +61,12 @@ impl Windowing for Lines<io::BufReader<File>> {
     // type Iter = Map<Lines<BufReader<File>>, impl FnOnce(Result<String, io::Error>) -> String>;
 
     fn window(self, size: usize) -> Window<Self::Item, Self::Iter> {
-        Window {
-            it: self.into_iter().map(|r| r.unwrap()),
+        let w = Window {
+            it: self.into_iter().filter_map(|r| r.ok()),
             cur: VecDeque::new(),
             size,
-        }
+        };
+        w
     }
 }
 
