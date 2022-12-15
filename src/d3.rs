@@ -32,12 +32,7 @@ impl Grid {
             }
         }
         let index = rows.iter().next().unwrap();
-        let s = self
-            .grid
-            .get(*index)
-            .unwrap()
-            .iter()
-            .collect::<String>();
+        let s = self.grid.get(*index).unwrap().iter().collect::<String>();
         usize::from_str_radix(s.as_str(), 2).unwrap()
     }
 
@@ -107,11 +102,13 @@ fn p1() {
     );
 }
 
+#[allow(dead_code)]
 fn p2() {
     let grid = Grid::parse_input();
     dbg!(grid.rating(true) * grid.rating(false));
 }
 
+#[allow(dead_code)]
 pub fn main() {
     p2();
 }
