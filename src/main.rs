@@ -1,7 +1,7 @@
 #![feature(type_alias_impl_trait)]
-mod d1;
+mod d2;
 mod util;
 
 fn main() {
-    d1::main();
+    d2::main();
 }

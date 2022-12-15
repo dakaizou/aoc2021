@@ -1,8 +1,7 @@
 use std::collections::VecDeque;
 use std::fs::File;
-use std::io::{self, BufRead, BufReader, Lines};
+use std::io::{self, BufRead, Lines};
 use std::path::Path;
-use std::iter::Map;
 
 pub struct Window<T, I>
 where
