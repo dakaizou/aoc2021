@@ -13,9 +13,9 @@ impl Submarine {
 
     fn mv(&mut self, cmd: Command) {
         match cmd {
-            Command::UP(n) => self.y -= n as isize,
-            Command::DOWN(n) => self.y += n as isize,
-            Command::FORWARD(n) => self.x += n,
+            Command::Up(n) => self.y -= n as isize,
+            Command::Down(n) => self.y += n as isize,
+            Command::Forward(n) => self.x += n,
         }
     }
 
@@ -37,9 +37,9 @@ impl Submarine2 {
 
     fn mv(&mut self, cmd: Command) {
         match cmd {
-            Command::UP(n) => self.aim -= n as isize,
-            Command::DOWN(n) => self.aim += n as isize,
-            Command::FORWARD(n) => {
+            Command::Up(n) => self.aim -= n as isize,
+            Command::Down(n) => self.aim += n as isize,
+            Command::Forward(n) => {
                 self.x += n;
                 self.y += self.aim * n as isize;
             },
@@ -53,19 +53,19 @@ impl Submarine2 {
 
 #[derive(Debug)]
 enum Command {
-    UP(usize),
-    DOWN(usize),
-    FORWARD(usize),
+    Up(usize),
+    Down(usize),
+    Forward(usize),
 }
 
-fn parse_line(line: &String) -> Command {
-    let mut line = line.as_str().split_whitespace();
+fn parse_line(line: &str) -> Command {
+    let mut line = line.split_whitespace();
     let command_str = line.next().unwrap();
     let num = line.next().unwrap().parse::<usize>().unwrap();
     match command_str {
-        "up" => Command::UP(num),
-        "down" => Command::DOWN(num),
-        "forward" => Command::FORWARD(num),
+        "up" => Command::Up(num),
+        "down" => Command::Down(num),
+        "forward" => Command::Forward(num),
         _ => panic!("no such command"),
     }
 }
